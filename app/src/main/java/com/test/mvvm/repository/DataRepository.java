@@ -53,7 +53,12 @@ public class DataRepository {
                         },throwable -> {
                             postMutableLiveData(StatusResource.error("Failed"));
                         });
+               compositeDisposable.add(disposable);
             }
         }.getMutableLiveData();
+    }
+
+    public void clearDisposable(){
+        compositeDisposable.clear();
     }
 }

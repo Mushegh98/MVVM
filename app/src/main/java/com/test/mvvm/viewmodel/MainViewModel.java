@@ -11,4 +11,9 @@ public class MainViewModel extends ViewModel {
     public MutableLiveData<StatusResource<Object>> getTestAPI(){
         return DataRepository.getRepositoryInstance().getTestAPI();
     }
+
+    @Override protected void onCleared() {
+        super.onCleared();
+        DataRepository.getRepositoryInstance().clearDisposable();
+    }
 }
